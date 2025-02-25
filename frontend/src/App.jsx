@@ -5,7 +5,6 @@ import AdminUsers from "./components/AdminUsers";
 import AdminInstructors from "./components/AdminInstructors";
 import AdminCourses from "./components/AdminCourses";
 // Instructor components
-import InstructorPage from "./components/InstructorPage";
 // Authentication components
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -18,6 +17,8 @@ import ShowCourse from "./components/ShowCourse";
 import CourseDetails from "./components/CourseDetails";
 import NoPage from "./components/NoPage";
 import Header from "./components/Header";
+import InstructorDashboard from "./components/InstructorDashboard";
+import InstructorPage from "./components/InstructorPage";
 
 // Layout component to include Header for user routes
 const UserLayout = ({ children }) => (
@@ -83,12 +84,15 @@ function App() {
         
         {/* Instructor routes */}
         {(userRole === 'Instructor' || !userRole) && (
-          <>
-            <Route path="/instructor" element={
-              <ProtectedRoute element={<InstructorPage />} requiredRole="Instructor" />
-            } />
-          </>
-        )}
+  <>
+    <Route path="/instructor" element={
+      <ProtectedRoute element={<InstructorPage />} requiredRole="Instructor" />
+    } />
+    <Route path="/dashboard" element={
+      <ProtectedRoute element={<InstructorDashboard />} requiredRole="Instructor" />
+    } />
+  </>
+)}
         
         {/* Handle 404 and redirects */}
         <Route path="*" element={

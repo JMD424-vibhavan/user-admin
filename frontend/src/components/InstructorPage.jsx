@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import InstructorDashboard from './InstructorDashboard';
 
 const InstructorPage = () => {
   const navigate = useNavigate();
@@ -17,10 +18,7 @@ const InstructorPage = () => {
 
   console.log("instructor page loaded")
   return (
-    <div>
-      InstructorPage
-      <button className='bg-amber-400 p-4'  onClick={handleLogout}>logout </button>
-    </div>
+   <InstructorDashboard/>
   )
 }
 
